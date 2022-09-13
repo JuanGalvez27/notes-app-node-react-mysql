@@ -1,0 +1,14 @@
+-- Creating the db
+
+CREATE DATABASE taskdb;
+
+-- Table task
+
+CREATE TABLE task (
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(200) NOT NULL,
+  description VARCHAR (300),
+  done BOOLEAN NOT NULL DEFAULT 0,
+  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
