@@ -1,17 +1,24 @@
 import {Form, Formik} from 'formik'
+import {createTaskRequest} from '../api/task.api.js'
 
 const TaskForm = () => {
   return (
     <div>
-      <Formik>
-        initialValues = {{
+      <Formik
+        initialValues={{
           title: "",
           description: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={async (values) => {
           console.log(values);
+          try{
+            const response = await createTaskRequest(values);
+          } catch (error){
+            console.error(error);
+          }
         }}
-        {(handleChange, handleSubmit) => (
+      >
+        {({handleChange, handleSubmit}) => (
           <Form onSubmit={handleSubmit}>
           <label>Title</label>
           <input 
