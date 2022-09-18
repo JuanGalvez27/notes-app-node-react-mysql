@@ -6,8 +6,9 @@ import taskRoutes from './routes/task.routes.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors()); // cors es un middleware, se puese seleccionar qué origenes se conectan
 app.use(express.json());
+
 app.use(indexRoutes);
 app.use(taskRoutes);
 
